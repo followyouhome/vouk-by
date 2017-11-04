@@ -1,0 +1,48 @@
+extends ../layouts/default
+
+block banner
+
+block content
+  div.container.columns.post-page
+    div.column-left
+      div.previews-wrap
+        h2 Апошнія навіны
+        if data.newestPosts
+        each post in data.newestPosts
+          +preview-news(post)
+
+    div.column-right
+      div.article-wrap
+
+        h1= data.currentPost.title
+
+        div.date-small
+          if data.currentPost.publishedDate
+            span !{data.currentPost.formatedDate.day}  !{data.currentPost.formatedDate.month} !{data.currentPost.formatedDate.year}
+
+          if data.currentPost.author
+            span &nbsp;-&nbsp
+            span= data.currentPost.author.fullname
+
+        div.brief-text
+          | !{data.currentPost.content.brief}
+
+        if data.currentPost.image && data.currentPost.image.href
+          p
+            img(src = data.currentPost.image.href)
+
+        div.article-text
+          | !{data.currentPost.content.extended}
+
+      div.pagination
+        if data.previousPost
+          div.prev
+            a(href=data.previousPost.slug)
+              span.top Папярэдняя
+              span.bottom= data.previousPost.title
+
+        if data.nextPost
+          div.next
+            a(href=data.nextPost.slug)
+              span.top Наступная
+              span.bottom= data.nextPost.title

@@ -1,0 +1,72 @@
+@import "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&subset=cyrillic-ext";
+@import "https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&subset=cyrillic-ext";
+@import "https://fonts.googleapis.com/css?family=PT+Serif:700italic&subset=cyrillic-ext";
+
+// Roboto
+// - 100 Thin
+// - 300 Light
+// - 400 Normal
+// - 500 Medium
+// - 700 Bold
+// Roboto Condensed
+// - 300 Light
+// - 400 Normal
+// - 700 Bold
+
+@roboto: 'Roboto', sans-serif;
+@robotoCondensed: 'Roboto Condensed', sans-serif;
+@PTSerif: 'PT Serif', serif;
+
+body {
+  font-family: @roboto;
+  font-weight: 300;
+  font-size: 16px;
+  color: @dark-grey;
+}
+
+h1,
+.h1 {
+  font-family: @PTSerif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 38px;
+}
+
+h2,
+.h2 {
+  font-family: @PTSerif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 26px;
+}
+
+h3,
+.h3 {
+  font-family: @PTSerif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 18px;
+}
+
+.font-small {
+  font-size: 14px;
+  line-height: 17px;
+}
+.font-extra-small {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.date-small {
+  font-family: @robotoCondensed;
+  font-weight: 400;
+  font-size: 14px;
+  color: fade(@dark-grey, 60%);
+}
+.brief-text {
+  font-family: @roboto;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  color: @very-dark-grey;
+}

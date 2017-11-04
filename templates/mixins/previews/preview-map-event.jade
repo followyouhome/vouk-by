@@ -1,0 +1,12 @@
+mixin preview-map-event(post)
+  article.preview-map-event
+    div.text-to-image
+      a(href=post.href).title
+        h2= post.title
+      | !{post.brief}
+
+    if (post.image && post.image.href) || post.formatedDate
+      +image-dated({
+        src: post.image.href,
+        date: post.formatedDate
+      })

@@ -1,0 +1,11 @@
+mixin friend-profile(friend)
+  article.friend-profile
+    +image-dated({
+      src: friend.image.src,
+      title: friend.title,
+      date: friend.formatedDate,
+      href: friend.link,
+      link: friend.link
+    })
+    div.text-to-image= friend.description
+

@@ -1,0 +1,17 @@
+extend ../layouts/default.jade
+
+block content
+  div.container.columns(class = data.class)
+    div.column-left
+      div.previews-wrap
+        h2 Апошнія навіны
+        if data.newestPosts
+            each post in data.newestPosts
+              +preview-news(post)
+
+    div.column-right
+      div.friends
+        h1 Сябры нашай праграмы
+        if data.friends
+          each friend in data.friends
+            +friend-profile(friend)

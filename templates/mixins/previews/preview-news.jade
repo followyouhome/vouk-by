@@ -1,0 +1,10 @@
+mixin preview-news(post)
+  article.preview-news
+    +image-dated({
+      src: post.image.href,
+      date: post.formatedDate,
+      href: post.href
+    })
+    a(href=post.href).title
+      h2= post.title
+    | !{post.brief}

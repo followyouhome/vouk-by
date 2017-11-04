@@ -1,0 +1,42 @@
+.decorated-bg-image(@bg) {
+  background-image: url("/images/ui/pattern-herringbone.png"), @bg;
+  background-position: bottom left -10px, center center;
+  background-repeat: repeat-x, no-repeat;
+  background-size: auto, cover;
+}
+.a-colors(@color, @active: @color) {
+  color: @color;
+  &:hover,
+  &.active {
+    color: @active;
+  }
+}
+.a-hover(@color) {
+  text-decoration: none;
+  transition: color .1s;
+  &:hover {
+    color: @color;
+  }
+}
+.double-title(@size-first:50px, @paddingFirst:140px) {
+  display: block;
+  &:first-child {
+    font-family: @roboto;
+    font-weight: 100;
+    text-transform: uppercase;
+    font-size: @size-first;
+    font-style: normal;
+    line-height: 70px;
+    padding-left: @paddingFirst;
+  }
+  &:last-child {
+    font-family: @PTSerif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 122px;
+    padding-left: 240px;
+    height: 80px;
+    line-height: 32px;
+    text-transform: lowercase;
+  }
+}

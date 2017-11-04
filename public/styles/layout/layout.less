@@ -1,0 +1,990 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: @light-grey;
+  min-width: @width;
+}
+section {
+  display: flex;
+  justify-content: space-between
+}
+p {
+  line-height: 24px;
+}
+a {
+  color: @green;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+header {
+  .flexbox;
+  .justify-content(center);
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  min-width: @width;
+  min-height: 100px;
+  .header-inner {
+    width: 100%;
+    max-width: @width-large;
+    background: url("@{imagePath}/ui/shadow-bg.png") top left repeat-x;
+    .container {
+      .flexbox;
+      flex-wrap: wrap;
+    }
+  }
+  nav {
+    .flexbox;
+    .flex-grow(1);
+    a {
+      display: block;
+      margin: 30px 45px 0 0;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 17px;
+      .a-colors(fade(@white, 80%), @white);
+      position: relative;
+      transition: color .2s;
+      &:not(.logo)::after {
+        content: "";
+        width: 0;
+        transition: width .2s;
+      }
+      &:not(.logo):hover::after,
+      &:not(.logo):active::after,
+      &:not(.logo).active::after {
+        content: "";
+        position: absolute;
+        top: 28px;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        .horizontal-gradient(@tangerine, @green, @green);
+      }
+      &.logo {
+        margin: 10px auto 0 0;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+
+//////////////////////////////////////////////////////LAYOUT//////////////////////////////////////////////////////////
+.banner-wrap {
+  max-width: @width-large;
+  margin: 0 auto;
+  .decorated-bg-image(url("@{imagePath}/ui/banner.jpg"));
+  height: 960px;
+}
+.banner {
+  .flexbox;
+  .align-items(flex-end);
+  color: @white;
+
+  article {
+    .base-min;
+    margin-bottom: 100px;
+    h2 {
+      font-family: 'PT Serif', serif;
+      font-style: italic;
+      font-weight: 700;
+      color: @white;
+      //text-indent:-99999px;
+      //background-image: url("@{imagePath}/ui/project-title.png");
+      height: 684px;
+      width: 544px;
+      margin-bottom: 30px;
+      opacity: .9;
+      position: relative;
+      .user-select;
+      .wolf-number {
+        display: inline-block;
+        margin: 180px 0 0 20px;
+        height: 357px;
+        line-height: 338px;
+        font-size: 500px;
+        position: relative;
+        &:before {
+          content: attr(data-number);
+          position: absolute;
+          left: 20px;
+          top: -78px;
+          font-size: 900px;
+          opacity: .08;
+          height: 520px;
+        }
+      }
+      .wolf-text {
+        display: block;
+        font-size: 116px;
+        line-height: 133px;
+      }
+    }
+
+    p {
+      .col-3-12;
+      margin-bottom: 30px;
+    }
+    a {
+      align-self: flex-end;
+      //.btn-transparent;
+      .icon-arrow-bottom;
+      display: block;
+      height: 40px;
+    }
+  }
+}
+
+.banner-fact-wrap {
+  max-width: @width-large;
+  margin: 0 auto 45px auto;
+  .decorated-bg-image(url("@{imagePath}/ui/banner-facts.jpg"));
+  height: 600px;
+}
+.banner-fact {
+  .flexbox;
+  .align-items(center);
+  .justify-content(center);
+  color: @white;
+
+  article {
+    .col-4-12;
+    padding-top: 45px;
+    h2 {
+      margin-left: -240px;
+      margin-bottom: 15px;
+      color: inherit;
+      span{
+        .double-title(56px, 180px);
+      }
+    }
+    h3 {
+      font-weight: 300;
+      font-size: 24px;
+      color: inherit;
+    }
+    h3, p {
+      margin: 0 0 5px 0;
+    }
+  }
+}
+
+.banner-join-wrap {
+  max-width: @width-large;
+  margin: 0 auto 45px auto;
+  .decorated-bg-image(url("@{imagePath}/ui/banner-join.jpg"));
+  height: 600px;
+}
+.banner-join {
+  .flexbox;
+  .align-items(center);
+  .justify-content(center);
+  color: @white;
+
+  article {
+    .col-4-12;
+    padding-top: 45px;
+    h2 {
+      margin-left: -240px;
+      margin-bottom: 15px;
+      color: inherit;
+      span{
+        .double-title(56px, 140px);
+      }
+    }
+    h3 {
+      font-weight: 300;
+      font-size: 24px;
+      color: inherit;
+    }
+    h3, p {
+      margin: 0 0 5px 0;
+    }
+    a.btn {
+      margin-top: 20px;
+    }
+  }
+}
+
+.banner-voting-wrap {
+  max-width: @width-large;
+  margin: 0 auto 45px auto;
+  .decorated-bg-image(url("@{imagePath}/ui/banner-voting.jpg"));
+  height: 600px;
+}
+.banner-voting {
+  .flexbox;
+  .align-items(center);
+  .justify-content(flex-end);
+  color: @white;
+
+  article {
+    .col-8-12;
+    padding-bottom: 60px;
+    h2 {
+      margin: 0 0 25px -50px;
+      font-family: 'PT Serif',serif;
+      font-weight: 700;
+      font-style: italic;
+      font-size: 42px;
+      line-height: 100%;
+      color: inherit;
+    }
+    .radio {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 46px;
+    }
+    .btn {
+      margin-top: 30px;
+    }
+  }
+}
+
+.banner-social-wrap{
+  max-width: @width-large;
+  margin: 0 auto;
+  .decorated-bg-image(url("@{imagePath}/ui/banner-social.jpg"));
+  height: 260px;
+}
+.banner-social {
+  color: @white;
+
+  article {
+    .col-5-12;
+    padding-top: 50px;
+    .btn {
+      display: inline-block;
+      margin: 0 25px 20px 0;
+    }
+    h2 {
+      margin-bottom: 5px;
+      color: inherit;
+      font-family: @robotoCondensed;
+      font-weight: 400;
+      font-size: 24px;
+      font-style: normal;
+    }
+    p{
+      margin: 5px 0;
+    }
+  }
+}
+
+
+.about-wrap {
+  height: @height-16;
+  margin-bottom: 60px;
+  background: url("@{imagePath}/ui/about.jpg") center center no-repeat;
+}
+.about {
+  .flexbox;
+  .justify-content(flex-end);
+  .align-items(center);
+  margin-bottom: 60px;
+  article {
+    .col-6-12;
+    p {
+      margin: 25px 0 0;
+      font-weight: 400;
+      line-height: 28px;
+    }
+  }
+}
+
+.news {
+  justify-content: flex-start;
+  article {
+    margin-right: 40px;
+  }
+  article:last-child {
+    margin-right: 20px;
+  }
+}
+
+.friends{
+  margin-bottom: 50px;
+  h1 {
+    margin-bottom: 31px;
+  }
+}
+
+.curious {
+  h1 {
+    margin-bottom: 31px;
+  }
+}
+
+.help-wrap {
+  max-width: @width-large;
+  margin: 0 auto;
+  .decorated-bg-image(url("@{imagePath}/ui/help.jpg"));
+  height: @height-30;
+}
+.help {
+  .col-8-12;
+  margin: 0 auto;
+  color: @white;
+  .help-title {
+    padding-top: 100px;
+    span {
+      .double-title;
+    }
+  }
+  .help-content {
+    padding-top: 70px;
+    .flexbox;
+    .justify-content(center);
+    .help-item {
+      .flexbox;
+      .flex-wrap(wrap);
+      width: 300px;
+      p {
+        margin: 0 0 40px;
+      }
+    }
+    .divider {
+      border-left: 1px solid fade(@white, 50%);
+    }
+  }
+}
+
+.additional {
+  .col-8-12;
+  padding: @height-3 0;
+  margin: 0 auto;
+}
+
+footer {
+  padding-top: 35px;
+  min-height: 120px;
+  text-align: center;
+  background: @very-light-grey;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+  color: fade(@very-dark-grey, 70%);
+  .copy {
+    font-size: 16px;
+  }
+  .contact {
+    font-size: 14px;
+    margin-top: 10px;
+    a {
+      padding-left: 15px;
+    }
+  }
+}
+
+.previews-wrap {
+  .column-left &:first-child{
+    padding-top: 13px;
+  }
+  > h2 {
+    margin-bottom: 35px;
+    font-family: @robotoCondensed;
+    font-size: 24px;
+    font-style: normal;
+  }
+}
+
+
+.map-description {
+  padding-top: 60px;
+  .avatar-big {
+    margin: -45px 100px 60px 0;
+  }
+}
+.map-wrap {
+  position: relative;
+  width: @width-max;
+  margin: 0 auto 60px auto;
+  .container {
+    position: relative;
+  }
+  .map-controls {
+    .flexbox;
+    .flex-direction(row);
+    padding: 10px;
+    position: absolute;
+    z-index: 9999;
+    width: 100%;
+    background: rgba(240, 240, 240, 0.88);
+
+    .radio-secondary-light {
+      margin-right: -2px;
+    }
+    .radio-wrapper {
+      .flexbox;
+      margin-left: auto;
+      margin-right: 2px;
+    }
+    select {
+      margin-left: 10px;
+      background-color: rgba(240, 240, 240, 0.88);
+    }
+  }
+}
+.search-result-wrap {
+  padding-top: 213px;
+  min-height: ~"calc(100vh - 138px)";
+
+  h2 {
+    margin-bottom: 52px;
+    font-family: @robotoCondensed;
+    font-size: 28px;
+    font-style: normal;
+  }
+  .preview-search + .pagination {
+    margin: 78px 0 52px 0;
+  }
+}
+/////////////////////////////////////////////////////COMPONENTS/////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////// image-dated tpl ///////////////////////////////////////////////////
+
+//base type - please, don't customize icons and proportions text/images here (let's do it locally, by wrappers and classes)
+.image-dated {
+  position: relative;
+  min-height: 125px;
+
+  //no picture - show only calendar by default
+  &.missed-picture {
+      .flex(0 0 80px);
+  }
+  min-width: @width/12 -@col-space;
+  //with picture - take space for image (size can be changed - depends on nexting and overriting)
+  &.loaded-picture {
+    .flex(1 0);
+    background: @regular-grey; //dynamic content - case if bad size of img (big width & small height)
+  }
+  img {
+    display: flex;
+    width: 100%;
+  }
+  .date {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    .col-1-12;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    padding-top: 5px;
+    background: @transparent-grey;
+    color: @white;
+    .title {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 26px;
+      line-height: 1.15;
+    }
+    .day, .month{
+      line-height: 1;
+    }
+    .day {
+      font-size: 50px;
+      font-weight: 700;
+    }
+    .month {
+      font-family: 'Roboto Condensed';
+      font-size: 14px;
+    }
+    span {
+      display: flex;
+      flex-shrink: 0;
+      align-self: flex-end;
+      margin-right: 10px;
+    }
+    a {
+      align-self: flex-end;
+      margin-top: auto;
+      //.btn-primary;
+      padding: 0;
+      .icon-arrow-right;
+    }
+  }
+}
+
+/////////////////////////////////////////////////// preview tpl's ////////////////////////////////////////////////////////
+//vertical preview (for aside and etc): Image (+Calendar) at the top, Title and Text at the bottom
+.preview-news {
+  line-height: 24px;
+  .flex(1 0);
+  margin-bottom: 60px;
+  .image-dated {
+    margin-bottom: 25px;
+
+    &.missed-picture {
+      min-height: 80px;
+      width: 80px;
+      float: left;
+      margin: 0 20px 15px 0;
+      .date{
+        span{
+          align-self: center;
+          margin-left: 10px;
+        }
+      }
+      .btn {
+        display: none;
+      }
+      + h2 {
+        min-height: 90px;
+      }
+    }
+   }
+  h2 {
+    line-height: 123%;
+    margin-bottom: 10px;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+//preview with no text: Image + Calendar and Title over image
+.preview-photos {
+  margin-bottom: @height-1;
+  .image-dated {
+    .date {
+      top:50%;
+      .col-4-12;
+      .title {
+        position: absolute;
+        top: 30px;
+        left: 25px;
+        width:50%;
+      }
+    }
+  }
+}
+//horizontal previews: Text left and Image+Calendar(or just calendar if no Image) right. text/image proportion ~1/1
+.preview-text-photo {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: @height-1;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  .text-to-image {
+    min-width: 4*(@width/12); //IE
+    background: @white;
+  }
+  .text-to-image, .image-dated.loaded-picture {
+    .flex(1 0);
+  }
+  .image-dated.loaded-picture {
+    min-width: 4*(@width/12)- @col-space;
+  }
+}
+//special type of horizontal preview - for extraordinary posts (editor add special flag to the post.
+// !!! editor should care about good image size and  brief size)
+.preview-text-photo-special {
+  position: relative;
+  margin-bottom: 20px;
+  .image-background {
+    display: block;
+    width: 100%;
+  }
+  .text-overlay {
+    position: absolute;
+    bottom:0;
+    left:50%;
+    right:0;
+    margin-left: 10px;
+    display: flex;
+
+    .text-to-image {
+      background: fade(@white, 90%);
+      min-width: 3*(@width/12); //IE
+    }
+  }
+}
+//special type of horizontal previews - with ico-map and text/image proportion ~3/1
+.preview-map-event {
+  .preview-text-photo;
+
+  .text-to-image {
+    .flex(3 0);
+    min-width: 9*(@width/12)-@col-space;//IE
+    background: @white;
+  }
+  .image-dated {
+    &.loaded-picture {
+      min-width: 3*(@width/12);
+    }
+    .date {
+      a {
+        .icon-map-marker;
+      }
+    }
+  }
+}
+
+.preview-search {
+  margin-bottom: 64px;
+  h3 {
+    font-size: 26px;
+    line-height: 100%;
+    color: @green;
+    margin-bottom: 10px;
+    a {
+      .a-hover(@dark-green);
+    }
+  }
+  .text {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 10px;
+    p {
+      margin: 0;
+    }
+  }
+  .link {
+    font-size: 14px;
+    line-height: 100%;
+    color: @green;
+  }
+}
+
+.preview-text-photo,
+.preview-text-photo-special,
+.preview-map-event {
+  .text-to-image {
+    padding: 25px 20px 15px 30px;
+    h2 {
+      margin-bottom: 7px;
+    }
+    p {
+      margin: 0 0 15px 0;
+    }
+  }
+}
+
+.preview-news,
+.preview-text-photo,
+.preview-text-photo-special {
+  a.title {
+    .a-hover(@dark-green);
+  }
+}
+/////////////////////////////////////////////  info tpls  //////////////////////////////////////////////////////////////
+.info-text {
+  article {
+    width: 100%;
+  }
+  h1, h2 {
+    margin-bottom: 20px;
+  }
+  p {
+    line-height: 28px;
+    margin: 0 0 30px 0;
+  }
+}
+//////////////////////////////////////////// participant tpl ////////////////////////////////////////////////////////////////
+.participants-wrap {
+  .flexbox;
+  margin: 0 -20px 20px 0;
+  align-items: stretch;
+  .participant {
+    .col-2-12;
+    margin-right: 20px;
+  }
+  h2 {
+    .col-6-12;
+    margin-bottom: 40px;
+  }
+  select {
+    margin-top: 10px;
+    .col-2-12;
+  }
+  flex-wrap: wrap;
+}
+.participant {
+  margin-bottom: 50px;
+  .avatar {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 25px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: @regular-grey;
+    background: @regular-grey url("@{imagePath}/ui/avatar-default-bg.png") center center no-repeat;
+    img {
+      border: 0;
+      width: 100%;
+      min-height: 100%;
+      height: auto;
+    }
+  }
+  h3 {
+    font-family: @robotoCondensed;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .jobtitle {
+    .font-small;
+    margin-bottom: 15px;
+    min-height: 34px; //2 rows * 17 line-height
+  }
+  .company {
+    .font-extra-small;
+    margin-bottom: 0;
+    color: @green;
+  }
+}
+
+///////////////////////////////////////////////////// animal tpl ///////////////////////////////////////////////////////
+.animals-wrap{
+ .column-left &:first-child{
+   padding-top: 13px;
+ }
+  > h2 {
+    margin-bottom: 35px;
+    font-family: @robotoCondensed;
+    font-size: 24px;
+    font-style: normal;
+  }
+}
+.animal-profile {
+  display: block;
+  position: relative;
+  padding:  10px 45px 15px 0;
+  margin: 0 0 50px 100px;
+  outline: none;
+  color: @dark-grey;
+  &:hover {
+    text-decoration: none;
+    .btn {
+      background-color: @green;
+      .icon-arrow-right;
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    .horizontal-gradient(@tangerine, @green, @green);
+  }
+  .avatar {
+    background: @regular-grey;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left: -100px;
+    top: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    img{
+      width: 100%;
+      min-height: 100%;
+    }
+  }
+  h3 {
+    font-family: @robotoCondensed;
+    font-style: normal;
+  }
+  p {
+    font-size: 14px;
+    margin: 4px 0 0;
+    line-height: 18px;
+  }
+  .btn {
+    position: absolute;
+    bottom:0;
+    right: 0;
+    transition: background-color 0.2s;
+  }
+}
+
+///////////////////////////////////////////////// friend tpl ///////////////////////////////////////////////////////////
+.friend-profile  {
+  margin-bottom: @height-1;
+  .image-dated {
+    display: flex;
+    min-height: 100px;
+    img {
+      width: 100px;
+      height: 100px;
+      flex-shrink: 0;
+    }
+    .date {
+      flex-grow: 1;
+      background: @grey-bg;
+      position: relative;
+      .title {
+        position: absolute;
+        top: 15px;
+        left: 30px;
+        width: 300px;
+      }
+    }
+  }
+  .text-to-image {
+    padding: 25px 30px 28px 30px;
+    background: @white;
+  }
+}
+
+//////////////////////////////////////////////// avatar /////////////////////////////////////////////////////////////////
+.avatar-big {
+  position: relative;
+  flex-shrink: 0;
+  .user-select;
+  width: 300px;
+  height: 300px;
+  border-radius:50%;
+  box-shadow: inset 0px 0px 0px 20px fade(@white,50%), inset 0px 0px 0px 40px fade(@white,45%), inset 0px 0px 0px 60px fade(@white,25%);
+
+  // &.non-decorated {
+  //   &:after, &:before {
+  //     display: none;
+  //   }
+  // }
+  //
+  // &:after, &:before {
+  //   content: "";
+  //   display: block;
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  // }
+  // &:after {
+  //   z-index: 2;
+  //   width: 60px;
+  //   height: 60px;
+  //   margin: -30px 0 0 -30px;
+  //   background: url("@{imagePath}/ui/avatar-rectangle.png") center center no-repeat;
+  // }
+  // &:before {
+  //   width: 2px;
+  //   height: 400px; // length to bottom + additional length for a case
+  //   margin-left: -1px;
+  //   margin-top: 30px; //( 60px=after / 2 )
+  //   background: @white;
+  // }
+
+  img {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    border-radius: 50%;
+  }
+}
+
+//////////////////////////////////////////////// info message /////////////////////////////////////////////////////////////////
+.info-message {
+  padding: 22px 20px;
+  background-color: @soft-orange;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  .flexbox;
+  .text {
+    .flex-grow(1);
+  }
+  .close {
+    height: 18px;
+    width: 18px;
+    background: url("@{imagePath}/ui/icon-cross.png") center center no-repeat;
+    cursor: pointer;
+    .flex-shrink(0);
+  }
+
+  &.thanks {
+    background-color: @lime;
+    .close {
+      background: url("@{imagePath}/ui/icon-cross-green.png") center center no-repeat;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+//////////////////////////////////////////////// bulleted list /////////////////////////////////////////////////////////////////
+.bulleted-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 15px;
+  line-height: 24px;
+  li {
+    padding-left: 30px;
+    margin-bottom: 28px;
+    position: relative;
+    &:before {
+      content: '\2022';
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 52px;
+      line-height: 26px;
+      color: @celeste;
+    }
+  }
+}
+
+////////////////////////////////////////////// wolf measurement /////////////////////////////////////////////////////////////
+.wolf-page-wrap {
+  margin-bottom: 45px;
+}
+.wolf-measurement {
+  font-family: 'Roboto Condensed', sans-serif;
+  .flexbox;
+  .item {
+    width: 90px;
+    margin-right: 110px;
+    text-align: center;
+    .measure-image {
+      display: inline-block;
+      height: 70px;
+      width: 80px;
+      &.age {
+        background: url("@{imagePath}/ui/icon-heart.png") top center no-repeat;
+      }
+      &.weight {
+        background: url("@{imagePath}/ui/icon-weight.png") top center no-repeat;
+      }
+      &.length {
+        background: url("@{imagePath}/ui/icon-rulers.png") top center no-repeat;
+      }
+    }
+    .measure-number {
+      font-size: 28px;
+      font-weight: 700;
+      .text {
+        font-size: 18px;
+        padding-left: 10px;
+      }
+    }
+    .measure-name {
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+}
+
+
+.post-page,
+.no-promo {
+  padding-top: 130px;
+}

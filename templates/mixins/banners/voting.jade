@@ -1,0 +1,14 @@
+mixin voting(survey)
+  section.banner-voting-wrap
+    div.container.banner-voting
+      article
+        h2= survey.title
+        
+        if survey.answers
+          form(method = "get" action = survey.href)
+            each answer, index in survey.answers
+              div.radio
+                input(type = "radio", name="answer", id = "option" + index, value = index)
+                label(for = "option" + index)= survey.answers[index]
+              div.radio
+            input(type="submit", value="Адказаць").btn.primary

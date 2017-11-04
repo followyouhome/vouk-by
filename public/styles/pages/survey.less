@@ -1,0 +1,129 @@
+.survey-page {
+  padding: 130px 0 115px;
+  .info-message {
+    margin-bottom: 30px;
+  }
+}
+.survey-results {
+  .result {
+    height: 80px;
+    .flexbox;
+    > div {
+      .flex(1 1 50%);
+    }
+    .text {
+      padding-right: 140px;
+      font-weight: 400;
+      line-height: 24px;
+    }
+    .calculation {
+      .flexbox;
+      .align-items(center);
+      height: 20px;
+      .percent {
+        width: 80px;
+        font-family: @roboto;
+        font-weight: 700;
+        font-size: 18px;
+      }
+      .bar-wrap {
+        .flex-grow(1);
+        padding-right: 90px;
+          .bar {
+            height: 10px;
+            background-color: @green;
+            position: relative;
+            .value {
+              position: absolute;
+              right: 0;
+              top: -4px;
+              width: 90px;
+              margin-right: -90px;
+              padding-left: 10px;
+              font-weight: 400;
+              color: fade(@dark-grey, 50%);
+            }
+          }
+      }
+    }
+  }
+}
+.archived-surveys {
+  h2 {
+    margin-bottom: 35px;
+    font-family: @robotoCondensed;
+    font-style: normal;
+    font-size: 24px;
+  }
+}
+.archive-item {
+  margin-bottom: 30px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  .date {
+    padding-bottom: 10px;
+    span {
+      padding-right: 5px;
+    }
+  }
+  .link {
+    font-size: 18px;
+    .a-hover(@dark-green);
+  }
+}
+
+.previous-surveys-wrap {
+  padding-top: 13px;
+  > h2 {
+    margin-bottom: 35px;
+    font-family: 'Roboto Condensed',sans-serif;
+    font-size: 24px;
+    font-style: normal;
+  }
+}
+.survey-preview {
+  .flexbox;
+  margin-bottom: 40px;
+  .date {
+    width: 80px;
+    .flex-shrink(0);
+    text-align: center;
+    .day {
+      display: block;
+      font-family: @roboto;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 35px;
+    }
+    .month {
+      font-family: @robotoCondensed;
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+  .name {
+    position: relative;
+    padding: 0 45px 20px 0;
+    h3 {
+      font-family: @robotoCondensed;
+      font-style: normal;
+    }
+    .btn {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      .horizontal-gradient(@tangerine, @green, @green);
+    }
+  }
+}

@@ -1,0 +1,56 @@
+extends ../layouts/default
+
+block banner
+
+block content
+  div.container.columns.survey-page
+    div.column-left
+      article.previous-surveys-wrap
+        h2 Пяпярэднія Апытанні
+        if data.lastSurveys
+        each survey in data.lastSurveys
+          +preview-survey(survey)
+
+    div.column-right
+      div.article-wrap
+
+        h1= data.currentSurvey.title
+
+        if data.message
+          div.info-message.thanks
+            div.text= data.message
+            div.close
+
+        div.survey-results
+          each scoresPercent, i in data.currentSurvey.scoresPercent
+            div.result
+              div.text= data.currentSurvey.answers[i]
+              div.calculation
+                div.percent= scoresPercent + "%"
+                div.bar-wrap
+                  div.bar(style="width:"+ scoresPercent +"%")
+                    span.value= data.currentSurvey.scores[i]
+
+      div.pagination
+        if data.previousSurvey
+          div.prev
+            a(href=data.previousSurvey.slug)
+              span.top Папярэдняе апытанне
+              span.bottom= data.previousSurvey.title
+
+        if data.nextSurvey
+          div.next
+            a(href=data.nextSurvey.slug)
+              span.top Наступнае апытанне
+              span.bottom= data.nextSurvey.title
+
+      if data.archivedSurveys
+        div.archived-surveys
+          h2 Архіў апытанняў
+          each survey in data.archivedSurveys
+            div.archive-item
+              div.date
+                span= survey.formatedDate.day
+                span= survey.formatedDate.month
+              h3
+                a.link(href=survey.href)= survey.title

@@ -1,0 +1,36 @@
+extend ../layouts/default.jade
+
+block banner
+  section.banner-join-wrap
+    div.container.banner-join
+      article
+        h2
+          span Падтрымайце
+          span праект
+        p Праект дапаможа пераасэнсаваць важнасць ваўкоў для навакольнага асяроддзя. Давайце вывучаць беларускіх ваўкоў разам!
+        a.btn.primary(href="/support") Далучыцца
+
+block content
+  div.container.columns
+    div.column-left
+      div.previews-wrap
+        h2 Апошнія навіны
+        if data.newestPosts
+          each post in data.newestPosts
+            +preview-news(post)
+
+    div.column-right
+      div.curious
+        h1 Цікава ведаць
+        each post, index in data.curiousesPosts
+          //TODO: 'special' posts at first item - just for example. In fact we should provide such a mark for posts (in editor)
+          if index == 0 && post.brief && post.image.href
+            +preview-text-photo-special(post)
+          else
+            if post.brief
+              +preview-text-photo(post)
+            else
+              +preview-photos(post)
+
+      if data.curiousesPages
+        +pagination(data.curiousesPages, data.currentPage)

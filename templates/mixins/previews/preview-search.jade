@@ -1,0 +1,6 @@
+mixin preview-search(post)
+  div.preview-search
+    h3
+      a(href=post.href)= post.title
+    div.text !{post.brief}
+    a(href=post.href).link !{post.href)

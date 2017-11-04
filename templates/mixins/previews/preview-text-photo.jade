@@ -1,0 +1,12 @@
+mixin preview-text-photo(post)
+  article.preview-text-photo
+    div.text-to-image
+      a(href=post.href).title
+        h2= post.title
+      | !{post.brief}
+
+    +image-dated({
+      src: post.image.href,
+      date: post.formatedDate,
+      href: post.href
+    })

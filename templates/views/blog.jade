@@ -1,0 +1,49 @@
+extend ../layouts/default.jade
+
+block bottom
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js')
+  script(src='https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.js')
+  script(src='/js/map.js')
+  script(src='/js/main.js')
+
+block content
+  section.container.map-description(class = data.class)
+    .avatar-big
+      img(src="../images/content/avatars-animals/avatar-big.png")
+    .info-text
+      h2 Як гэта працуе
+      p Па Белавежскай пушчы бегаюць некалькі ваўкоў са спецыяльнымі ашыйнікамі, якія перадаюць каардынаты іх месцазнаходжання па мабільная сувязі. На гэтай карце вы можаце бачыць маршруты ваўкоў і апісанне самых цікавых кропак “Воўчага блога”, да якіх дабраліся даследчікі па слядах драпежнікаў. Вы можаце праглядаць маршруты ўсіх ваўкоў або кожнага паасобку, а таксама выбіраць адрэзак часуб за які aдлюстраваны трэкі.
+
+  .map-wrap
+    .container
+      form.map-controls
+        if data.wolves
+          each wolf in data.wolves
+            label.wolf-checkbox
+              input(type="checkbox", checked="checked", name=wolf.name)
+              .checkbox(style="background-color:#{wolf.mapColor}; border-color:#{wolf.mapColor}") &#10004;
+              = wolf.name
+
+        div.radio-wrapper
+          .radio-secondary-light
+            input(type="radio", name="mode", id="path", value="path", checked="checked")
+            label(for="path") Маршруты
+          .radio-secondary-light
+            input(type="radio", name="mode", id="area", value="area")
+            label(for="area") Тэрыторыі
+
+        select.secondary-light(name="limit")
+          option(value="", selected="selected") Увесь перыяд
+          option(value="6") 6 месяцаў
+          option(value="3") 3 месяцы
+          option(value="1") Апошні месяц
+    #map
+
+  if data.posts
+    section
+      .container
+        each post in data.posts
+          +preview-map-event(post)
+
+        if data.pages
+          +pagination(data.pages, data.currentPage)

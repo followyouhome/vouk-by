@@ -1,0 +1,18 @@
+mixin image-dated(item)
+  if item.src
+    div.image-dated.loaded-picture
+      img(src=item.src)
+      div.date
+        div.title= item.title
+        if item.date
+          span.day= item.date.day
+          span.month= item.date.month
+        a(href=item.href).btn.primary
+  else
+    div.image-dated.missed-picture
+      div.date
+        div.title= item.title
+        if item.date
+          span.day= item.date.day
+          span.month= item.date.month
+        a(href=item.href).btn.primary

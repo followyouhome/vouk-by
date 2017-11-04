@@ -1,0 +1,131 @@
+// Support page styles
+.support-title {
+  margin-bottom: 23px;
+}
+.support-plans {
+  p:last-child {
+    margin-bottom: 25px;
+  }
+}
+.payment {
+    .payment-type {
+      .flexbox;
+      padding: 18px 0 21px 0;
+      .e-money, .card, .cash {
+        padding: 65px 15px 0 15px;
+        .flex-basis(180px);
+        margin-right: 20px;
+        font-size: 14px;
+        line-height: 21px;
+        text-align: center;
+      }
+      .e-money {
+        background: url("/images/ui/support-payment-e-money.png") no-repeat center top;
+      }
+      .card {
+        background: url("/images/ui/support-payment-card.png") no-repeat center top;
+      }
+      .cash {
+        background: url("/images/ui/support-payment-cash.png") no-repeat center top;
+      }
+    }
+
+    .payment-instructions {
+      margin-top: 15px;
+      article {
+        ul {
+          padding-left: 16px;
+        }
+        p, ul {
+            line-height: 28px;
+        }
+      }
+      .additional-action {
+        margin-bottom: 52px;
+        .text {
+          display: none;
+        }
+        .toggle {
+          .flexbox;
+          .align-items(center);
+          cursor: pointer;
+          color: @green;
+          .a-hover(@dark-green);
+
+          .marker-info {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border: 2px solid @green;
+            background: url("/images/ui/icon-info-green.png") no-repeat center center;
+          }
+          .print-icon {
+            display: inline-block;
+            width: 26px;
+            height: 26px;
+            margin-right: 10px;
+            background: url("/images/ui/icon-print.png") no-repeat center center;
+          }
+        }
+        &.opened .toggle, .toggle:hover {
+          color: @dark-green;
+          .marker-info {
+            background-image: url("/images/ui/icon-info-white.png");
+            background-color: @green;
+            transition: background-color .2s;
+          }
+          .print-icon {
+            background-image: url("/images/ui/icon-print-hover.png");
+          }
+        }
+        &.opened {
+          .text {
+            display: block;
+          }
+        }
+      }
+    }
+
+    .payment-tree {
+      width: 635px;
+      padding: 20px 0 15px 55px;
+      font-size: 14px;
+      .flexbox;
+      .flex-direction(column);
+      div {
+        position: relative;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        margin-bottom: 20px;
+        background: @gray89;
+        +div:before {
+          position: absolute;
+          left: -20px;
+          top: -20px;
+          content: "";
+          display: inline-block;
+          width: 20px;
+          height: 40px;
+          border-left: 2px solid @gray89;
+          border-bottom: 2px solid @gray89;
+        }
+//      }
+      &:nth-child(2){
+        margin-left: 40px;
+      }
+      &:nth-child(3){
+        margin-left: 80px;
+      }
+    }
+  }
+}
+.support-social-text {
+  margin-bottom: 60px;
+  h2 {
+    padding-top: 5px;
+    margin-bottom: 10px;
+  }
+}

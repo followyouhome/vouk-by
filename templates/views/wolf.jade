@@ -1,0 +1,46 @@
+extend ../layouts/default.jade
+
+block content
+  div.container.columns.wolf-page-wrap(class = data.class)
+    div.column-left
+      div.avatar-big
+        if data.wolf.avatar && data.wolf.avatar.src
+          img(src = data.wolf.avatar.src)
+        else
+          img(src="../images/content/avatars-animals/avatar-big.png")
+
+    div.column-right
+      h1.support-title !{data.wolf.prefix} !{data.wolf.name}
+      div.wolf-measurement
+        if data.wolf.age
+          div.item
+            div.measure-image.age
+            div.measure-number= data.wolf.ageValue
+              span.text= data.wolf.ageText
+            div.measure-name Узрост
+
+        if data.wolf.weight
+          div.item
+            div.measure-image.weight
+            div.measure-number= data.wolf.weightValue
+              span.text= data.wolf.weightText
+            div.measure-name Вага
+
+        if data.wolf.length
+          div.item
+            div.measure-image.length
+            div.measure-number= data.wolf.lengthValue
+              span.text= data.wolf.lengthText
+            div.measure-name Даўжіня цела з хвастом
+
+      if data.wolf.info
+        p= data.wolf.info
+
+  if data.posts
+    section
+      div.container
+        each post in data.posts
+          +preview-map-event(post)
+
+        if data.pages
+          +pagination(data.pages, data.currentPage)

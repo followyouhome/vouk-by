@@ -1,0 +1,9 @@
+mixin preview-photos(post)
+  article.preview-photos
+    if post.image && post.image.href
+      +image-dated({
+        src: post.image.href,
+        href: post.href,
+        date: post.formatedDate,
+        title: post.title
+      })

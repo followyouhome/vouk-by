@@ -1,0 +1,44 @@
+extend ../layouts/default.jade
+
+block banner
+  section.banner-wrap
+    div.container.banner
+      article
+        h2
+          span.wolf-number(data-number='4') 4
+          span.wolf-text ваўкі
+        p сталі публічнымі персонамі і расказваюць людзям пра сваё жыццё ў блогу
+        a(href='#footer').arrow-bottom.btn.white
+
+block content
+  section.about-wrap
+    div.container.about
+      article
+        h1 Аб праекце
+        p Некалькі ваўкоў з&nbsp;Белавежскай пушчы маюць спецыяльныя ашыйнікі з&nbsp;GPS-перадатчыкамі, якія перасылаюць каардынаты іх&nbsp;блукання па&nbsp;лесе даследчыкам. Кропкі наносяцца на&nbsp;інтэрактыўную карту, а&nbsp;самыя цікавыя гісторыі з&nbsp;жыцця драпежнікаў публікуюцца ў&nbsp;
+          a(href='/blog') &laquo;Воўчым блогу&raquo;.
+
+  if data.newestPosts
+    section.container.news
+      each post in data.newestPosts
+        +preview-news(post)
+
+  section.help-wrap
+    div.container
+      div.help
+        div.help-title
+          span Падтрымайце
+          span праект
+        div.help-content
+          div.help-item
+            p Просім вашай дапамогі: збіраем сродкі на закупку дадатковых ашыйнікаў з GPS-перадатчыкамі і на адлоў ваўкоў
+            a(href='/support#offering').btn.primary Зрабіць ахвяраванне
+
+  if data.curiousPosts
+    section.container
+      div.additional
+        each post in data.curiousPosts
+          if !post.content.brief
+            +preview-photos(post)
+          else
+            +preview-text-photo(post)

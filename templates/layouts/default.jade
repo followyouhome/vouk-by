@@ -1,0 +1,90 @@
+include ../mixins/image-dated
+include ../mixins/pagination
+include ../mixins/previews/preview-survey
+include ../mixins/previews/preview-search
+include ../mixins/previews/preview-map-event
+include ../mixins/previews/preview-news
+include ../mixins/previews/preview-photos
+include ../mixins/previews/preview-text-photo
+include ../mixins/previews/preview-text-photo-special
+include ../mixins/profiles/animal-profile
+include ../mixins/profiles/friend-profile
+include ../mixins/profiles/participant-profile
+include ../mixins/banners/voting
+include ../mixins/banners/fact
+
+doctype html
+html
+
+  head
+    meta(charset="utf-8")
+    title= title || 'Воўчы блог. Як жывуць ваўкі ў Белавежскай пушчы'
+
+    link(href="/styles/main.css", rel="stylesheet")
+
+    if data.promotion && data.promotion.image && data.promotion.image.src
+      case data.promotion.type
+        when 'survey'
+          style .banner-voting-wrap { background-image: url("/images/ui/pattern-herringbone.png"),url(!{data.promotion.image.src}); }
+        when 'promo'
+          style .banner-fact-wrap { background-image: url("/images/ui/pattern-herringbone.png"),url(!{data.promotion.image.src}); }
+
+    //For styles and primary page scripts
+    block head
+
+  body
+
+    block header
+      header
+        div.header-inner.search-form-wrapper
+          div.container
+            nav
+              a(href='/').logo
+               img(src='/images/ui/logo-vauki.png')
+              a(href='/', class=(section=='homepage'?'active':null)) Галоўная
+              a(href='/about', class=(section=='about'?'active':null)) Аб праекце
+              a(href='/blog', class=(section=='blog'?'active':null)) Воўчы блог
+              a(href='/curious', class=(section=='curious'?'active':null)) Цікава ведаць
+              a(href='/support', class=(section=='support'?'active':null)) Падтрымайце праект
+              a(href='/friends', class=(section=='friends'?'active':null)) Нашы сябры
+            div.search-form-toggle
+              // a(href='/search')
+            form(action='/search').search-form
+              input(type="text", name='q')
+              button(type="reset").btn.transparent.icon-clear
+              button(type="submit").btn.primary.icon-arrow-right
+              //
+                ul
+                  li
+                    a(href='#')
+                      span.suggest Воучы
+                      |  адказ на паляванне
+                  li
+                    a(href='#')
+                      span.suggest Воучы
+                      |  адказ
+
+    block banner
+      block banner
+        if data.promotion
+          case data.promotion.type
+            when 'survey'
+              +voting(data.promotion)
+            when 'promo'
+              +fact(data.promotion)
+
+    block content
+
+    block footer
+      footer#footer
+        div.container
+          div.copy &copy;&nbsp;2009-2017&nbsp;ГА &laquo;Ахова птушак Бацькаўшчыны&raquo;
+          div.contact
+            a(href="mailto:info@ptushki.org") info@ptushki.org
+
+    //For usual page scripts
+    block bottom
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js')
+      script(src='/js/main.js')
+      script(src='/js/google-analytics.js')
+

@@ -1,0 +1,69 @@
+@import "https://api.mapbox.com/mapbox.js/v2.3.0/mapbox.css";
+
+#map {
+  width: 100%;
+  height: 500px;
+}
+
+.leaflet-container {
+  font: inherit;
+  a {
+    color: #fff;
+  }
+}
+.leaflet-popup-content-wrapper {
+  background-color: @transparent-grey;
+  border-radius: initial;
+
+  .leaflet-popup-content{
+    padding: 20px;
+    min-width: 260px;
+    .flexbox;
+    .align-items(center);
+    img {
+      max-width: 40px;
+      max-height: 40px;
+      .flex-grow(0);
+      margin-right: 20px;
+      border-radius: 50%;
+    }
+    a {
+      .a-colors(fade(@white, 80%), @white);
+      transition: color .2s;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+.leaflet-popup-tip {
+  border-top-color: @transparent-grey;
+}
+
+.wolf-checkbox {
+  padding: 0 10px;
+  line-height: 40px;
+  cursor: pointer;
+
+  input {
+    display: none;
+
+    &:not(:checked) + .checkbox {
+      color: @light-grey !important;
+      background-color: @light-grey !important;
+    }
+  }
+
+  .checkbox {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #000;
+    margin-right: 10px;
+    line-height: 20px;
+    text-align: center;
+    color: #fff;
+  }
+
+}

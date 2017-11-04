@@ -1,0 +1,10 @@
+mixin animal-profile(wolf)
+  a(href=wolf.href).animal-profile
+    div.avatar
+      if wolf.avatar && wolf.avatar.src
+        img(src=wolf.avatar.src)
+      else
+        img(src='../images/content/avatars-animals/avatar-wolf-1.jpg')
+    h3=wolf.name
+    p=wolf.feature
+    span.btn.green.icon-arrow-right-green

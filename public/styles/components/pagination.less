@@ -1,0 +1,91 @@
+.pagination {
+  .flexbox;
+  margin: 70px 0;
+  .prev,
+  .next {
+    .flex(1);
+    a {
+      display: inline-block;
+      max-width: 350px;
+      font-family: @roboto;
+      .a-hover(@dark-green);
+      span {
+        display: block;
+      }
+      .top {
+        margin-bottom: 20px;
+        position: relative;
+        font-weight: 400;
+        font-size: 14px;
+        &:before {
+          content: '';
+          position: absolute;
+          top: 1px;;
+          width: 10px;
+          height: 16px;
+        }
+      }
+      .bottom {
+        font-family: @PTSerif;
+        font-style: italic;
+        font-weight: 700;
+        font-size: 22px;
+      }
+    }
+  }
+  .prev {
+    a {
+      .top {
+        padding-left: 20px;
+        &:before {
+          left: 0;
+          background: url("@{imagePath}/ui/icon-prev.png") no-repeat;
+        }
+      }
+    }
+  }
+  .next {
+    text-align: right;
+    a {
+      .top {
+        padding-right: 20px;
+        &:before {
+          right: 0;
+          background: url("@{imagePath}/ui/icon-next.png") no-repeat;
+        }
+      }
+    }
+  }
+
+  &.center {
+    .justify-content(center);
+    .align-items(center);
+    .prev,
+    .next {
+      .flex(0 1 auto);
+      a {
+        .top {
+          margin-bottom: 3px;
+        }
+      }
+    }
+  }
+  .pages {
+    padding: 0 20px;
+    font-size: 18px;
+    a {
+      display: inline-block;
+      min-width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      &:hover {
+        background: @gainsboro;
+        text-decoration: none;
+      }
+      &.active {
+        color: @dark-grey;
+      }
+    }
+  }
+}

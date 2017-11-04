@@ -1,0 +1,76 @@
+extend ../layouts/default.jade
+
+block content
+  div.container.columns(class = data.class)
+    div.column-left
+      div.previews-wrap
+        h2 Апошнія навіны
+        if data.newestPosts
+          each post in data.newestPosts
+            +preview-news(post)
+
+    div.column-right
+      h1.support-title Ваўкам патрэбна дапамога
+      article.support-plans.info-text
+        p
+          b Праект па назіранню за ваўкамі - унікальны. З дапамогай атрыманых звестак мы адкажам на многія пытанні пра жыццё гэтых шэрых драпежнікаў, пераасэнсуем іх важнасць для навакольнага асяроддзя.
+          b І нам не абысціся без вашай дапамогі. Давайце разам вывучаць беларускіх ваўкоў!
+        p За ахвяраваныя сродкі мы зможам закупіць дадатковыя ашыйнікі з GPS-перадатчыкамі, пакрыць выдаткі на адлоў ваўкоў і транспарт, каб угнацца за хутканогімі драпежнікамі. А таксама на мабільную сувязь для воўчых ашынікаў: звяры не могуць схадзіць у інфакіёск - ім трэба дапамагчы :)
+
+      div.payment
+          h2.support-title Як можна зрабіць ахвяраванне?
+
+          div.payment-type
+            div.e-money электроннымі грашыма (Webmoney, Easypay, iPay, BelQI);
+            div.card аплатнай карткай (інтэрнэт-банк, мабільны-банк, інфакіёск, банкамат, каса банка)
+            div.cash наяўнымі (cash-in, каса банка)
+
+          div.payment-instructions
+            article
+              h3 З дапамогай сістэмы “Разлік”/“Расчет (ЕРИП)”
+              ul
+                li Выбраць паслядоўна пункты
+                  div.payment-tree
+                    div Ахвяраванні, дабрачыннасць
+                    div Ахова птушак Бацькаўшчыны
+                    div Ахвяраванні
+                li Увесці прозвішча, імя і адрас адпраўніка
+                li Увесці суму дабрачыннага ўнёску
+                li Праверыць карэктнасць інфармацы
+                li Здзейсніць плацёж
+              div.additional-action.closed
+                div.toggle.open
+                  span.marker-info
+                  span Знаходжанне паслугі ў дрэве паслуг сістэмы "Разлік" (ЕРІП)
+                p.text у некаторых пунктах аплаты можа адрознівацца ад апісанага вышэй. У выпадку ўзнікнення праблем з пошукам паслугі прапануем выканаць пошук па УНП. Наш УНП: 101546170.
+
+            article
+              div.printed-info
+                h3 Праз пералік у любым аддзяленні банка ці пошты па наступных рэквізітах:
+                p Мэта плацяжу - добраахвотнае ахвяраванне
+                  br
+                  |Атрымальнік - ГА “Ахова птушак Бацькаўшчыны”
+                  br
+                  |Р/р 3135104926068 УНП 101546170 АКПА 37527794
+                  br
+                  |Рэгіянальная Дырэкцыя № 700 ААТ "БПС-Сбербанк",
+                  br
+                  |г. Мінск, пр. Машэрава, 80, 220035, код 369
+              div.additional-action
+                div.toggle.print
+                  span.print-icon
+                  span Раздрукаваць
+
+      div.support-social-text.info-text
+        h2 Станавіцеся “воўчым”  інфармацыйным валанцёрам!
+        p Расказвайце пра “Воўчы блог” сваім сябрам і родным, падзяліцеся спасылкамі ў сацыяльных сетках: каб і вашы блізкія сачылі за цікавым жыццём шэрых драпежнікаў!
+
+        script(src='/js/social.js')
+        script(src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js")
+        script(src="//yastatic.net/share2/share.js")
+        div(class="ya-share2",
+          data-services="facebook,vkontakte,twitter,odnoklassniki,moimir,linkedin,lj,viber,whatsapp,skype,telegram",
+          data-copy="last",
+          data-limit="3",
+          data-lang="be",
+          data-popup-direction="top")

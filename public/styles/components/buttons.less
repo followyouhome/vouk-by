@@ -1,0 +1,120 @@
+.btn {
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  height: 40px;
+  line-height: 36px;
+  padding: 0 20px;
+  text-transform: uppercase;
+  transition: all .1s;
+  outline: none;
+  .user-select;
+  cursor:pointer;
+  &:hover {
+    text-decoration: none;
+  }
+  &.primary {
+    color: @white;
+    background-color: @green;
+    border: 2px solid @green;
+    &:hover {
+      background-color: @dark-green;
+      border: 2px solid @dark-green;
+    }
+  }
+  &.secondary {
+    color: fade(@dark-grey, 90%);
+    background-color: transparent;
+    border: 2px solid fade(@dark-grey, 90%);
+    &:hover {
+      color: @white;
+      background-color: fade(@dark-grey, 90%);
+    }
+  }
+  &.secondary-light {
+    color: fade(@dark-grey, 90%);
+    text-transform: none;
+    font-weight: 300;
+    border: 2px solid transparent;
+    &.active {
+      border: 2px solid fade(@dark-grey, 90%);
+    }
+    &:hover {
+      color: @white;
+      background-color: fade(@dark-grey, 90%);
+      border: 2px solid fade(@dark-grey, 90%);
+    }
+  }
+  &.white {
+    color: fade(@white, 90%);
+    background-color: transparent;
+    border: 2px solid @white;
+     &:hover {
+       color: @white;
+     }
+  }
+  &.green {
+    color: fade(@green, 90%);
+    background-color: transparent;
+    border: 2px solid @green;
+  }
+  &.transparent {
+    background-color: transparent;
+    border: 2px solid transparent;
+  }
+}
+
+.icon-arrow-bottom {
+  padding: 0;
+  width: 40px;
+  background-image: url("/images/ui/arrow-bottom.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.icon-arrow-right {
+  padding: 0;
+  width: 40px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("/images/ui/arrow-right.png");
+}
+.icon-arrow-right-green{
+  padding: 0;
+  width: 40px;
+  background-image: url("/images/ui/arrow-right-green.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.icon-social-fb,
+.icon-social-vk
+{
+  padding: 0;
+  display: flex;
+  width: 60px;
+  height: 60px;
+  background-image: url("/images/ui/social-fb.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.icon-social-fb {
+  background-image: url("/images/ui/social-fb.png");
+}
+.icon-social-vk {
+  background-image: url("/images/ui/social-vk.png");
+}
+.icon-map-marker {
+  padding: 0;
+  width: 40px;
+  background-image: url("/images/ui/marker.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.icon-clear {
+  padding: 0;
+  width: 40px;
+  background-image: url("/images/ui/icon-cross-transparent.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+}

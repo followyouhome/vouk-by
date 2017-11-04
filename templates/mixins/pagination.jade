@@ -1,0 +1,19 @@
+mixin pagination(pages, currentPage, previous, next)
+  div.pagination.center
+    if previous
+      div.prev
+        a(href='?page=' + previous)
+          span.top Папярэдняя
+
+    div.pages
+      if pages.length > 1
+        each page in pages
+          if (page != currentPage)
+            a(href='?page=' + page) !{page}
+          else
+            a(href='?page=' + page).active !{page}
+
+    if next
+      div.next
+        a(href='?page=' + next)
+          span.top Наступная

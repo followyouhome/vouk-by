@@ -1,0 +1,16 @@
+extends ../layouts/default
+
+block banner
+
+block content
+  div.container.search-result-wrap
+    if data.searchResults && data.searchResults.length
+      h2 Вынікі пошуку (#[span=data.searchResults.length])
+
+      each post in data.searchResults
+        +preview-search(post)
+
+      if data.pagination
+        +pagination(data.pagination.pages, data.pagination.current, data.pagination.previous, data.pagination.next)
+    else
+      p Нічога не знойдзена

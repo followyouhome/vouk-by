@@ -1,0 +1,8 @@
+mixin fact(promo)
+  section.banner-fact-wrap
+    div.container.banner-fact
+      article
+        h2
+          span !{promo.title.split(' ')[0]}
+          span !{promo.title.split(' ').splice(1).join(' ')}
+        p !{promo.content}

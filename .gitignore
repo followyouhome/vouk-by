@@ -1,0 +1,8 @@
+*.css
+*.log
+.DS_Store
+node_modules
+public/images/posts
+#public/images/wolves
+public/images/friends
+public/images/participants

@@ -1,0 +1,8 @@
+mixin participant-profile(participant)
+  div.participant(data-roles = participant.rolesString)
+    div.avatar
+      if participant.photo && participant.photo.src
+        img(src=participant.photo.src)
+    h3=participant.fullname
+    p.jobtitle=participant.jobtitle
+    p.company=participant.company

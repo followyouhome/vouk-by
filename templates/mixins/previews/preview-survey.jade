@@ -1,0 +1,8 @@
+mixin preview-survey(survey)
+  div.survey-preview
+    div.date
+      span.day= survey.formatedDate.day
+      span.month= survey.formatedDate.month
+    div.name
+      h3= survey.title
+      a(href=survey.href).btn.green.icon-arrow-right-green
